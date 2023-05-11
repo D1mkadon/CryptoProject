@@ -1,0 +1,19 @@
+.pagination {
+  margin-top: 50px;
+  display: flex;
+  gap: 20px;
+}
+.info {
+  display: flex;
+  overflow: hidden;
+  padding: 15px;
+  gap: 30px;
+  justify-content: flex-start;
+  margin-left: 60px;
+  p:last-child {
+    margin-left: auto;
+  }
+}
+.HChange {
+  width: 100px;
+}

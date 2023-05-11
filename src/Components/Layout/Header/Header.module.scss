@@ -1,0 +1,29 @@
+.header {
+  height: 115px;
+  position: fixed;
+  width: 75%;
+  top: 0;
+  background-color: transparent;
+  backdrop-filter: blur(10px);
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  nav {
+    display: flex;
+    gap: 20px;
+    a {
+      transition: all 0.2s ease-in-out;
+      &:hover {
+        color: #ff5722;
+      }
+    }
+  }
+}
+.scrolledHeader {
+  height: 65px;
+}

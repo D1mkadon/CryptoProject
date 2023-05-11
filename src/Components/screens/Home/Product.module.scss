@@ -1,0 +1,21 @@
+.icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.block {
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-start;
+  gap: 30px;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: #111;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 10px 15px -5px rgba(255, 255, 255, 0.1),
+    0 8px 10px -6px rgba(255, 255, 255, 0.1);
+  p:last-child {
+    margin-left: auto;
+  }
+}
