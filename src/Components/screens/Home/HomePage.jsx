@@ -8,27 +8,33 @@ import { Button } from "@mui/material";
 import Preview from "./Preview";
 import { motion } from "framer-motion";
 import { container } from "@/styles/animation";
-async function fetchCoins(skip = 0) {
+async function fetchCoins(skip = 1) {
   const { data } = await axios.get(
-    `https://api.coinstats.app/public/v1/coins?skip=${skip}&limit=10`
+    `https://openapiv1.coinstats.app/coins?page=${skip}`,
+    {
+      headers: {
+        accept: "application/json",
+        "X-API-KEY": "zxWIGTikZOpsa0xlNO2LZ4kpXL3tvpvRCoX3lkVoClI=",
+      },
+    }
   );
-  return data.coins;
+  return data.result;
 }
 const HomePage = () => {
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
   const { data, isLoading, isError } = useQuery(
     ["coins", page],
     () => fetchCoins(page),
     { keepPreviousData: true }
   );
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <p className={styles.loading}>Loading...</p>;
   }
   if (isError) {
-    return <p>error</p>;
+    return <p className={styles.error}>error</p>;
   }
   if (!data) {
-    return <p>There is no data...</p>;
+    return <p className={styles.noData}>There is no data...</p>;
   }
 
   return (
@@ -56,7 +62,7 @@ const HomePage = () => {
         <Button
           variant="outlined"
           color="secondary"
-          onClick={() => setPage((p) => p - 10)}
+          onClick={() => setPage((p) => p - 1)}
           disabled={!page}
         >
           back
@@ -64,7 +70,7 @@ const HomePage = () => {
         <Button
           variant="outlined"
           color="secondary"
-          onClick={() => setPage((p) => p + 10)}
+          onClick={() => setPage((p) => p + 1)}
         >
           next
         </Button>

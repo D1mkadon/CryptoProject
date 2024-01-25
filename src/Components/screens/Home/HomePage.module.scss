@@ -17,3 +17,21 @@
 .HChange {
   width: 100px;
 }
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.noData {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
